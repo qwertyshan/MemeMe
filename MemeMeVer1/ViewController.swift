@@ -23,12 +23,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     
     override func viewWillAppear(animated: Bool) {
         cameraPicker.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         toolbarTop.hidden = true
     }
     
-    // ************ TEXT FIELD STUFF ********************* //
+    // MARK: Text Field Methods
     
     func setText(textfield: UITextField){
         let memeTextAttributes = [
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         textField.resignFirstResponder()
     }
     
-    //****************** KEYBOARD NOTIFICATIONS ********************//
+    // MARK: Keyboard notification methods
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -103,14 +103,14 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     
     func keyboardWillShow(notification: NSNotification) {
         if textBottom.isFirstResponder() && !shiftUp {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
             shiftUp = true
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if shiftUp {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
             shiftUp = false
         }
     }
@@ -121,20 +121,31 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         return keyboardSize.CGRectValue().height
     }
     
-    //********* ACTION METHODS ******************//
+    // MARK: IBAction methods
+    
+    enum ImageSource {  //Define image sources
+        case Camera
+        case Library
+    }
     
     @IBAction func pickAnImage(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        pickImage(ImageSource.Library)
     }
     
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
+        pickImage(ImageSource.Camera)
+    }
+    
+    func pickImage (imageSource: ImageSource) {         // Helper function to select image from specified source
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        switch imageSource {
+        case .Camera:
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        case .Library:
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func shareMeme(sender: AnyObject)  {
@@ -156,8 +167,8 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.image = image
-            self.dismissViewControllerAnimated(true, completion: nil)
+            imagePickerView.image = image
+            dismissViewControllerAnimated(true, completion: nil)
             textTop.hidden = false
             textBottom.hidden = false
             toolbarTop.hidden = false
@@ -165,15 +176,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {  
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // Create a structure for Meme
-    struct Meme {
-        var textTop: String
-        var textBottom: String
-        var image: UIImage
-        var memedImage: UIImage
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save() -> Meme {
@@ -188,8 +191,8 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         toolbarBottom.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

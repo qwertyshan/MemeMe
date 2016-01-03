@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  MemeMeVer1
+//  MemeViewController.swift
+//  MemeMeVer2
 //
 //  Created by Shantanu Rao on 10/29/15.
 //  Copyright © 2015 Shantanu Rao. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePicker: UIBarButtonItem!
     @IBOutlet weak var cameraPicker: UIBarButtonItem!
@@ -152,16 +152,19 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         let memedImage = generateMemedImage()
         let sharedImage = [memedImage as AnyObject]
         let activityVC = UIActivityViewController(activityItems: sharedImage, applicationActivities: nil)
+        self.save()
         activityVC.completionWithItemsHandler = {
             (s: String?, b: Bool, a: [AnyObject]?, n: NSError?) -> Void in
-            self.save()
+            
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         presentViewController(activityVC, animated: true, completion: nil)
     }
-    
+
     @IBAction func cancelMeme(sender: AnyObject) {
-        resetView()
+        
+        // Return meme to initial configuration
+        dismissViewControllerAnimated(true, completion: nil)
     }
  
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -179,10 +182,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func save() -> Meme {
+    func save() {
         let memedImage = generateMemedImage()
         let meme = Meme(textTop: textTop.text!, textBottom: textBottom.text!, image: imagePickerView.image!, memedImage: memedImage)
-        return meme
+        
+        // Add it to the memes array in the Application Delegate
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage

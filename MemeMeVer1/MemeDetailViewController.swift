@@ -12,7 +12,7 @@ import UIKit
 class MemeDetailViewController: UIViewController {
     
     @IBOutlet weak var memeImage: UIImageView!
-    @IBOutlet weak var editMemeButton: UIButton!
+    @IBOutlet weak var editMemeButton: UIBarButtonItem!
     
     var meme: Meme!
     var memeIndex: Int? = nil

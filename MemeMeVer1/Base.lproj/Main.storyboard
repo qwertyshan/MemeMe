@@ -198,6 +198,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="xYx-Ne-b9s" id="xKt-fO-6KG"/>
+                        <segue destination="hR4-qk-Lcd" kind="show" id="8rI-6B-CCh"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8o-6m-s8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,26 +223,9 @@
                                     <rect key="frame" x="80" y="336" width="240" height="128"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VB9-ON-MYO">
-                                <rect key="frame" x="534" y="20" width="46" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Edit">
-                                            <attributes>
-                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="editMemeSegue" id="BVG-ln-DKw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="VB9-ON-MYO" secondAttribute="trailing" constant="20" id="EYI-GB-vdD"/>
-                            <constraint firstItem="VB9-ON-MYO" firstAttribute="top" secondItem="AwW-VK-RhX" secondAttribute="bottom" constant="2" id="Jda-GA-eE0"/>
                             <constraint firstAttribute="trailing" secondItem="LjO-4F-pgk" secondAttribute="trailing" id="LR2-Md-KeV"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="top" secondItem="AwW-VK-RhX" secondAttribute="bottom" id="M8X-cD-pCv"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="centerY" secondItem="qdc-eE-ZFR" secondAttribute="centerY" id="W2c-bJ-0Vw"/>
@@ -250,8 +234,15 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xT4-Rm-ouJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IMZ-3e-X0P">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="editMemeSegue" id="h9e-N1-ZEk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="editMemeButton" destination="VB9-ON-MYO" id="lF0-I4-4At"/>
+                        <outlet property="editMemeButton" destination="IMZ-3e-X0P" id="OBB-iQ-HD8"/>
                         <outlet property="memeImage" destination="LjO-4F-pgk" id="qbv-ln-HLq"/>
                     </connections>
                 </viewController>
@@ -331,6 +322,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableViewOutlet" destination="6dv-xG-x5E" id="MQ9-ZU-LRC"/>
+                        <segue destination="hR4-qk-Lcd" kind="show" id="IhH-T4-cPM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRC-ih-OWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -343,7 +335,8 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BVG-ln-DKw"/>
+        <segue reference="8rI-6B-CCh"/>
+        <segue reference="h9e-N1-ZEk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

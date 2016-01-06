@@ -38,9 +38,13 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")! as UITableViewCell
         let meme = memes[indexPath.item] //Select meme on current row
         
+        // Set substrings
+        let strFirst = meme.textTop.characters.prefix(10)
+        let strSecond = meme.textBottom.characters.prefix(10)
+        
         // Set the name and image
         if let textLabel = cell.textLabel {
-            textLabel.text = meme.textTop + "... " + meme.textBottom
+            textLabel.text =  String(strFirst) + "... " + String(strSecond)
         }
       /*  if let detailTextLabel = cell.detailTextLabel {
             detailTextLabel.text = meme.textBottom

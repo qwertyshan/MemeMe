@@ -6,7 +6,9 @@
 //  Copyright © 2015 Shantanu Rao. All rights reserved.
 //
 
+
 import UIKit
+//import CoreGraphics
 
 class MemeViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -200,6 +202,28 @@ class MemeViewController: UIViewController, UITextFieldDelegate,UIImagePickerCon
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        /*
+        
+        var imageSize: CGSize
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            imageSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.width)
+        }
+        else {
+            imageSize = CGSize(width: self.view.bounds.size.height, height: self.view.bounds.size.height)
+        }
+        
+        let imageCenter = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        let imageRect = CGRect(origin: imageCenter, size: imageSize)
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(imageSize)
+        view.drawViewHierarchyInRect(imageRect, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+*/
         
         toolbarTop.hidden = false
         toolbarBottom.hidden = false

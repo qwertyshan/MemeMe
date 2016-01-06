@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="GGp-fo-cWj" kind="relationship" relationship="rootViewController" id="Qgs-n9-JRb"/>
+                        <segue destination="WMQ-se-eGs" kind="relationship" relationship="rootViewController" id="zLl-b1-eEY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apY-Hj-GsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,69 +142,61 @@
             <point key="canvasLocation" x="-446" y="-795"/>
         </scene>
         <!--Sent Memes-->
-        <scene sceneID="Rjz-h7-5lS">
+        <scene sceneID="cbI-Hz-cgg">
             <objects>
-                <collectionViewController id="GGp-fo-cWj" customClass="CollectionViewController" customModule="MemeMeVer2" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Snf-cE-fBH">
+                <collectionViewController title="Sent Memes" id="WMQ-se-eGs" customClass="CollectionViewController" customModule="MemeMeVer2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wCY-Ns-oqB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OrF-IA-bfR">
-                            <size key="itemSize" width="96" height="127"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xYx-Ne-b9s">
+                            <size key="itemSize" width="93" height="86"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="bPf-lP-z7D" customClass="MemeCollectionViewCell" customModule="MemeMeVer2">
-                                <rect key="frame" x="0.0" y="64" width="96" height="127"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="Yng-Eg-yGd" customClass="MemeCollectionViewCell" customModule="MemeMeVer2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="93" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="96" height="127"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="93" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shJ-SN-nz7">
-                                            <rect key="frame" x="3" y="23" width="88" height="75"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-XL-PzH">
+                                            <rect key="frame" x="0.0" y="0.0" width="93" height="86"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-G8-1rR">
-                                            <rect key="frame" x="26" y="0.0" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYX-n3-xke">
-                                            <rect key="frame" x="26" y="106" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Ub6-XL-PzH" firstAttribute="top" secondItem="Yng-Eg-yGd" secondAttribute="top" constant="5" id="cUb-ZS-R64"/>
+                                    <constraint firstItem="Ub6-XL-PzH" firstAttribute="leading" secondItem="Yng-Eg-yGd" secondAttribute="leading" constant="5" id="dFD-dO-PMc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ub6-XL-PzH" secondAttribute="bottom" constant="5" id="i1z-kH-mWs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ub6-XL-PzH" secondAttribute="trailing" constant="5" id="uWT-8O-UbX"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="bottomLabel" destination="vYX-n3-xke" id="4el-nr-qcg"/>
-                                    <outlet property="imageView" destination="shJ-SN-nz7" id="eEm-xu-V9q"/>
-                                    <outlet property="topLabel" destination="Oya-G8-1rR" id="JPX-np-fY9"/>
+                                    <outlet property="imageView" destination="Ub6-XL-PzH" id="GKR-a1-5LH"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="GGp-fo-cWj" id="px7-MV-6Zf"/>
-                            <outlet property="delegate" destination="GGp-fo-cWj" id="Gc9-ga-5tF"/>
+                            <outlet property="dataSource" destination="WMQ-se-eGs" id="PcI-ir-8bR"/>
+                            <outlet property="delegate" destination="WMQ-se-eGs" id="dhX-SX-cZQ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="zsv-J6-0gP">
-                        <barButtonItem key="backBarButtonItem" title="Sent" id="wUo-L2-iVb"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="fFS-lG-1aD">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="X0G-ru-Lp8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wMf-h1-RLo">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="eiK-h3-moK"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="R7m-H3-xqK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="flowLayout" destination="OrF-IA-bfR" id="2BL-70-6xI"/>
+                        <outlet property="flowLayout" destination="xYx-Ne-b9s" id="xKt-fO-6KG"/>
                     </connections>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gyd-bV-Mhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8o-6m-s8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="268" y="-795"/>
         </scene>
@@ -229,8 +221,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LjO-4F-pgk" firstAttribute="centerX" secondItem="qdc-eE-ZFR" secondAttribute="centerX" id="4gF-Mr-Kag"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="centerY" secondItem="qdc-eE-ZFR" secondAttribute="centerY" id="W2c-bJ-0Vw"/>
+                            <constraint firstItem="LjO-4F-pgk" firstAttribute="centerX" secondItem="qdc-eE-ZFR" secondAttribute="centerX" id="z2t-27-tnX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -284,7 +276,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YeL-Wi-Ifo">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -326,7 +318,7 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YBz-oT-sGL"/>
+        <segue reference="R7m-H3-xqK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

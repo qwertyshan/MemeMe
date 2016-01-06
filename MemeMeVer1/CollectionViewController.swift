@@ -6,12 +6,11 @@
 //  Copyright © 2016 Shantanu Rao. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CollectionViewController: UICollectionViewController {
     
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!    
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
@@ -19,35 +18,58 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         collectionView?.reloadData()
+      /*
+        //Subscribe to device orientation change notifications
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceDidRotate:", name: UIDeviceOrientationDidChangeNotification, object: nil) */
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let space: CGFloat = 3.0
-        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
-    /*    switch UIDevice.currentDevice().orientation {
-        case .Unknown, .Portrait, .PortraitUpsideDown, .FaceDown, .FaceUp:
-            let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
-        default:
-            let dimension = (self.view.frame.size.height - (2 * space)) / 5.0
+        setDimensions()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+       /*
+        //Unsubscribe from device orientation change notifications
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        if UIDevice.currentDevice().generatesDeviceOrientationNotifications {
+            UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
+        } */
+    }
+    
+    // Reset dimensions on device rotation
+   /* func deviceDidRotate(notification: NSNotification)
+    {
+        setDimensions()
+    } */
 
-        }*/
+    func setDimensions() {
+        let space: CGFloat = 5.0
+        let dimension: CGFloat
         
+        // Check for device orientation and set dimensions
+        if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        }
+        else {
+            dimension = (self.view.frame.size.width - (4 * space)) / 5.0
+        }
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
-    
+
     // MARK: UICollectionViewFlowLayoutDelegate
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            
-            let memedImage = self.memes[indexPath.row].memedImage //Select meme on current row
-            return memedImage.size
+                        
+            return CGSizeMake(100,100)
     }
     
     
@@ -62,13 +84,6 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[indexPath.row] //Select meme on current row
         
-        // Set the name and image
-        if let textLabel = cell.topLabel {
-            textLabel.text = meme.textTop
-        }
-        if let detailTextLabel = cell.bottomLabel {
-            detailTextLabel.text = meme.textBottom
-        }
         if let imageView = cell.imageView {
             imageView.image = meme.memedImage
         }

@@ -62,7 +62,7 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             textTop.hidden = true
             resetText(textBottom)
             textBottom.hidden = true
-            toolbarTop.hidden = true
+            shareButton.enabled = false
         }
     }
     
@@ -130,20 +130,14 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             UIKeyboardWillShowNotification, object: nil)
     }
     
-    var shiftUp = false
-    
     func keyboardWillShow(notification: NSNotification) {
-        if textBottom.isFirstResponder() && !shiftUp {
-            view.frame.origin.y -= getKeyboardHeight(notification)
-            shiftUp = true
+        if textBottom.isFirstResponder() {
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if shiftUp {
-            view.frame.origin.y += getKeyboardHeight(notification)
-            shiftUp = false
-        }
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -205,7 +199,7 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             dismissViewControllerAnimated(true, completion: nil)
             textTop.hidden = false
             textBottom.hidden = false
-            toolbarTop.hidden = false
+            shareButton.enabled = true
         }
     }
     

@@ -17,12 +17,12 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setDimensions()
     }
 
@@ -45,11 +45,9 @@ class CollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewFlowLayoutDelegate
     
-    func collectionView(collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
                         
-            return CGSizeMake(100,100)
+        return CGSizeMake(100,100)
     }
     
     

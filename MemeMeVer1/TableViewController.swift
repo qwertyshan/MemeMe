@@ -18,6 +18,7 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         tableViewOutlet.reloadData()
     }
     

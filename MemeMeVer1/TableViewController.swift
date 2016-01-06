@@ -46,9 +46,6 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
         if let textLabel = cell.textLabel {
             textLabel.text =  String(strFirst) + "... " + String(strSecond)
         }
-      /*  if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = meme.textBottom
-        } */
         if let imageView = cell.imageView {
             imageView.image = meme.memedImage
         }

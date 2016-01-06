@@ -18,10 +18,6 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         collectionView?.reloadData()
-      /*
-        //Subscribe to device orientation change notifications
-        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceDidRotate:", name: UIDeviceOrientationDidChangeNotification, object: nil) */
     }
     
     override func viewDidLoad() {
@@ -32,19 +28,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-       /*
-        //Unsubscribe from device orientation change notifications
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        if UIDevice.currentDevice().generatesDeviceOrientationNotifications {
-            UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
-        } */
     }
-    
-    // Reset dimensions on device rotation
-   /* func deviceDidRotate(notification: NSNotification)
-    {
-        setDimensions()
-    } */
 
     func setDimensions() {
         let space: CGFloat = 5.0

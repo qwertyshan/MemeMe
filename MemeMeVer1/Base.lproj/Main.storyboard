@@ -9,7 +9,7 @@
         <!--MemeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MemeViewController" id="BYZ-38-t0r" customClass="MemeViewController" customModule="MemeMeVer2" sceneMemberID="viewController">
+                <viewController title="MemeViewController" id="BYZ-38-t0r" customClass="MemeEditViewController" customModule="MemeMeVer2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -55,14 +55,15 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BUj-DI-la5"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-Yf-bum">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-Yf-bum">
                                 <rect key="frame" x="20" y="64" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-LN-XAc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-LN-XAc">
                                 <rect key="frame" x="20" y="506" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -72,12 +73,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5ku-LN-XAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0KJ-g5-Nb3"/>
                             <constraint firstItem="tDi-vf-Fne" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1Ro-0d-EBG"/>
+                            <constraint firstItem="R0u-Yf-bum" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1te-HL-3bC"/>
                             <constraint firstItem="tDi-vf-Fne" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2Ig-pv-5vc"/>
+                            <constraint firstItem="R0u-Yf-bum" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6Lf-Ow-lDr"/>
                             <constraint firstItem="5ku-LN-XAc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6S1-C4-6yT"/>
                             <constraint firstItem="R0u-Yf-bum" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HDq-YD-yfM"/>
                             <constraint firstItem="KK7-rA-7ZL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Kx6-KQ-E90"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tDi-vf-Fne" secondAttribute="trailing" constant="-20" id="VOb-4W-WqQ"/>
+                            <constraint firstItem="5ku-LN-XAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="XBU-Pf-uXb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KK7-rA-7ZL" secondAttribute="trailing" constant="-20" id="hgU-dG-ahd"/>
                             <constraint firstItem="uOT-WK-5do" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="jBa-72-6Ym"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tDi-vf-Fne" secondAttribute="bottom" id="kgR-SS-Fjg"/>
@@ -322,7 +327,7 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YBz-oT-sGL"/>
+        <segue reference="R7m-H3-xqK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

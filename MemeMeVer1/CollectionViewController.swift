@@ -31,7 +31,7 @@ class CollectionViewController: UICollectionViewController {
     }
 
     func setDimensions() {
-        let space: CGFloat = 5.0
+        let space: CGFloat = 3.0
         let dimension: CGFloat
         
         // Check for device orientation and set dimensions

@@ -1,2 +1,2 @@
-# memeMeVer1
-MemeMe version 1 app for Udacity's Nanodegree
+# memeMeVer2
+MemeMe version 2 app for Udacity's Nanodegree

@@ -12,8 +12,10 @@ import UIKit
 class MemeDetailViewController: UIViewController {
     
     @IBOutlet weak var memeImage: UIImageView!
+    @IBOutlet weak var editMemeButton: UIButton!
     
     var meme: Meme!
+    var memeIndex: Int? = nil
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,6 +27,16 @@ class MemeDetailViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.hidden = false
+    }
+    
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "editMemeSegue") {
+            
+            let controller = segue.destinationViewController as! MemeEditViewController
+            
+            controller.memeIndex = memeIndex
+        }
     }
     
 }

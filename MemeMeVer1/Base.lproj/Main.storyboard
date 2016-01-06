@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--MemeViewController-->
+        <!--MemeEditViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MemeViewController" id="BYZ-38-t0r" customClass="MemeEditViewController" customModule="MemeMeVer2" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MemeEditViewController" storyboardIdentifier="MemeEditViewController" title="MemeEditViewController" id="BYZ-38-t0r" customClass="MemeEditViewController" customModule="MemeMeVer2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tDi-vf-Fne">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDi-vf-Fne">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOT-WK-5do" userLabel="Toolbar Top">
@@ -55,7 +55,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BUj-DI-la5"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-Yf-bum">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-Yf-bum">
                                 <rect key="frame" x="20" y="64" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
@@ -63,7 +63,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-LN-XAc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-LN-XAc">
                                 <rect key="frame" x="20" y="506" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -94,7 +94,6 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cameraPicker" destination="ZLa-y9-pWz" id="1AG-x8-ebM"/>
                         <outlet property="cancelButton" destination="zZ7-ux-MXT" id="K7f-hp-UIW"/>
@@ -223,18 +222,36 @@
                                     <rect key="frame" x="80" y="336" width="240" height="128"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VB9-ON-MYO">
+                                <rect key="frame" x="534" y="20" width="46" height="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Edit">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="editMemeSegue" id="BVG-ln-DKw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VB9-ON-MYO" secondAttribute="trailing" constant="20" id="EYI-GB-vdD"/>
+                            <constraint firstItem="VB9-ON-MYO" firstAttribute="top" secondItem="AwW-VK-RhX" secondAttribute="bottom" constant="2" id="Jda-GA-eE0"/>
                             <constraint firstAttribute="trailing" secondItem="LjO-4F-pgk" secondAttribute="trailing" id="LR2-Md-KeV"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="top" secondItem="AwW-VK-RhX" secondAttribute="bottom" id="M8X-cD-pCv"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="centerY" secondItem="qdc-eE-ZFR" secondAttribute="centerY" id="W2c-bJ-0Vw"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="leading" secondItem="qdc-eE-ZFR" secondAttribute="leading" id="vRA-qa-IwN"/>
-                            <constraint firstItem="7lg-kk-cYF" firstAttribute="top" secondItem="LjO-4F-pgk" secondAttribute="bottom" id="ySo-8Q-ag1"/>
                             <constraint firstItem="LjO-4F-pgk" firstAttribute="centerX" secondItem="qdc-eE-ZFR" secondAttribute="centerX" id="z2t-27-tnX"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <connections>
+                        <outlet property="editMemeButton" destination="VB9-ON-MYO" id="lF0-I4-4At"/>
                         <outlet property="memeImage" destination="LjO-4F-pgk" id="qbv-ln-HLq"/>
                     </connections>
                 </viewController>
@@ -271,11 +288,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-xG-x5E">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-xG-x5E">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" textLabel="YeL-Wi-Ifo" style="IBUITableViewCellStyleDefault" id="mOg-V6-VB6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="MemeCell" textLabel="YeL-Wi-Ifo" style="IBUITableViewCellStyleDefault" id="mOg-V6-VB6">
                                         <rect key="frame" x="0.0" y="65" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="mOg-V6-VB6" id="PcD-xy-AeX">
@@ -298,14 +315,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dvZ-TW-nfx" firstAttribute="top" secondItem="6dv-xG-x5E" secondAttribute="bottom" id="7OM-Ak-gD3"/>
-                            <constraint firstItem="6dv-xG-x5E" firstAttribute="leading" secondItem="EGn-Z1-co2" secondAttribute="leading" id="8g9-AF-KRB"/>
+                            <constraint firstItem="6dv-xG-x5E" firstAttribute="leading" secondItem="EGn-Z1-co2" secondAttribute="leadingMargin" id="8g9-AF-KRB"/>
                             <constraint firstAttribute="trailing" secondItem="6dv-xG-x5E" secondAttribute="trailing" id="N6K-7G-eTB"/>
-                            <constraint firstItem="6dv-xG-x5E" firstAttribute="top" secondItem="sjC-Zb-B9L" secondAttribute="bottom" id="nLO-pr-isY"/>
+                            <constraint firstItem="6dv-xG-x5E" firstAttribute="top" secondItem="EGn-Z1-co2" secondAttribute="topMargin" id="Qce-OY-rjg"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Sent Memes" id="vc8-FL-aG1">
-                        <barButtonItem key="backBarButtonItem" title="Sent" id="4u2-NT-HKL"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9KN-g4-aw4">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="YBz-oT-sGL"/>
@@ -327,7 +343,7 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R7m-H3-xqK"/>
+        <segue reference="BVG-ln-DKw"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

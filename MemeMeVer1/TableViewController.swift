@@ -55,9 +55,27 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.memes[indexPath.item]
+        detailController.meme = memes[indexPath.item]
+        detailController.memeIndex = indexPath.row
         navigationController!.pushViewController(detailController, animated: true)
         
+    }
+    
+    // Delete row
+    
+    func tableView(tableView: UITableView,
+        commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
+            switch editingStyle {
+            case .Delete:
+                // remove the deleted item from the model
+                (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(indexPath.row)
+                
+                // remove the deleted item from the `UITableView`
+                tableViewOutlet.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            default:
+                return
+            }
     }
 
 }

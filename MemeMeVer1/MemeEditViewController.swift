@@ -8,7 +8,6 @@
 
 
 import UIKit
-//import CoreGraphics
 
 class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -23,6 +22,9 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
+    var memeIndex: Int? = nil
+    var meme: Meme? = nil
+    
     override func viewWillAppear(animated: Bool) {
         cameraPicker.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotifications()
@@ -34,39 +36,66 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     }
     
     override func viewDidLoad() {
-        resetView()
+        setView()
     }
     
-    func resetView() {
-        imagePickerView.image = nil
-        print(imagePicker.image)
-        setText(textTop)
-        textTop.hidden = true
-        setText(textBottom)
-        textBottom.hidden = true
-        toolbarTop.hidden = true
+    func setView() {
+        // If existing meme is being edited, open that meme
+        if let memeIndex = memeIndex {
+            meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[memeIndex]
+            imagePickerView.image = meme!.image
+            imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
+            
+            setMemeTextAttributes(textTop)
+            textTop.text = meme!.textTop
+            textTop.hidden = false
+            setMemeTextAttributes(textBottom)
+            textBottom.text = meme!.textBottom
+            textBottom.hidden = false
+            toolbarTop.hidden = false
+        }
+        // Else, when memeIndex is nil, reset views
+        else {
+            imagePickerView.image = nil
+            
+            resetText(textTop)
+            textTop.hidden = true
+            resetText(textBottom)
+            textBottom.hidden = true
+            toolbarTop.hidden = true
+        }
     }
     
     // MARK: Text Field Methods
     
-    func setText(textfield: UITextField){
+    func memeTextAttributes() -> [String: AnyObject] {
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName : -2.0
         ]
+        return memeTextAttributes
+    }
+    
+    func resetText(textfield: UITextField){
         // Set attributed on placeholder text
+        var position: String
         switch textfield {
         case textTop:
-            textfield.attributedPlaceholder = NSAttributedString(string: "TOP", attributes: memeTextAttributes)
+            position = "TOP"
         default:
-            textfield.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
+            position = "BOTTOM"
         }
-        textfield.delegate = self
-        textfield.defaultTextAttributes = memeTextAttributes
+        textfield.attributedPlaceholder = NSAttributedString(string: position, attributes: self.memeTextAttributes())
         textfield.text = nil
         textfield.clearsOnBeginEditing = true
+        setMemeTextAttributes(textfield)
+    }
+    
+    func setMemeTextAttributes(textfield: UITextField){
+        textfield.delegate = self
+        textfield.defaultTextAttributes = memeTextAttributes()
         textfield.textAlignment = NSTextAlignment.Center
     }
     
@@ -186,10 +215,16 @@ class MemeEditViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     
     func save() {
         let memedImage = generateMemedImage()
-        let meme = Meme(textTop: textTop.text!, textBottom: textBottom.text!, image: imagePickerView.image!, memedImage: memedImage)
+        let memeToSave = Meme(textTop: textTop.text!, textBottom: textBottom.text!, image: imagePickerView.image!, memedImage: memedImage)
         
-        // Add it to the memes array in the Application Delegate
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        // If meme is new, append to the memes array in the Application Delegate
+        
+        if self.memeIndex == nil {
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(memeToSave)
+        } else {
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes[memeIndex!] = memeToSave
+            self.memeIndex = nil
+        }
     }
     
     func generateMemedImage() -> UIImage

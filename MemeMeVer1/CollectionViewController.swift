@@ -25,10 +25,6 @@ class CollectionViewController: UICollectionViewController {
         
         setDimensions()
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
 
     func setDimensions() {
         let space: CGFloat = 3.0

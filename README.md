@@ -21,7 +21,7 @@ Share your memes via text messaging, email, or Facebook.
 ## View Stored Memes
 See your Meme collection in a table view or a collection view. 
 
-![Meme Table View](/doc/MemeMe_Table.png)
+![Meme Table View](/doc/MemeMe_Table1.png)
 
 All views work in portrait and landscape orientations.
 

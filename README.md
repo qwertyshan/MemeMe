@@ -8,26 +8,26 @@ MemeMe is a meme-generating app that enables a user to attach a caption to a pic
 
 Use images from your photo library or use your camera.
 
-![Meme Editor View 2](/doc/MemeMe_Editor_2.png)
+![Meme Editor View 2](/doc/m_editor2.png)
 
 Add your own text.
 
-![Meme Editor View 1](/doc/MemeMe_Editor_1.png)
+![Meme Editor View 1](/doc/m_editor1.png)
 
 Share your memes via text messaging, email, or Facebook.
 
-![Meme Share View](/doc/MemeMe_Share.png)
+![Meme Share View](/doc/m_share.png)
 
 ## View Stored Memes
 See your Meme collection in a table view or a collection view. 
 
-![Meme Table View](/doc/MemeMe_Table.png)
+![Meme Table View](/doc/m_table.png)
 
 All views work in portrait and landscape orientations.
 
-![Meme Collection View](/doc/MemeMe_Collection.png)
+![Meme Collection View](/doc/m_collection.png)
 
 ## Edit Stored Memes
 
-![Meme Stored](/doc/MemeMe_Stored.png)
+![Meme Stored](/doc/m_stored.png)
 

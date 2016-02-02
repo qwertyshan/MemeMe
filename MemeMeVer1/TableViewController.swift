@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
 
@@ -36,16 +36,25 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:MemeCell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! MemeCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! MemeCell
         let meme = memes[indexPath.item] //Select meme on current row
         
         // Set substrings
         let strFirst = meme.textTop.characters.prefix(10)
         let strSecond = meme.textBottom.characters.prefix(10)
-        let str = String(strFirst).capitalizedString + "... " + String(strSecond).capitalizedString
+        let strFull = String(strFirst).capitalizedString + "... " + String(strSecond).capitalizedString
         
         // Set the name and image
-        cell.loadItem(image: meme.image, text: str)
+        if let cellImage = cell.cellImage {
+            cellImage.image = meme.image
+        } else {
+            print("cellImage is nil")
+        }
+        if let cellText = cell.cellText {
+            cellText.text = strFull
+        } else {
+            print("cellText is nil")
+        }
         
         return cell
     }

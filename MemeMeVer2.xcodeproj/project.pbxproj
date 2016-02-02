@@ -66,18 +66,18 @@
 		8F6330841BE2C44E0007F52B /* MemeMeVer2 */ = {
 			isa = PBXGroup;
 			children = (
+				8F732C161C35CE7300581ECF /* Meme.swift */,
 				8F4E4F491C39E3DF00F54C92 /* CollectionViewController.swift */,
+				8F732C3C1C3896BE00581ECF /* MemeCollectionViewCell.swift */,
+				8F732C1A1C37835700581ECF /* TableViewController.swift */,
+				8F24D3E41C6136C3006E77FC /* MemeCell.swift */,
 				8F6330851BE2C44E0007F52B /* AppDelegate.swift */,
 				8F6330871BE2C44E0007F52B /* MemeEditViewController.swift */,
-				8F6330891BE2C44E0007F52B /* Main.storyboard */,
-				8F63308C1BE2C44E0007F52B /* Assets.xcassets */,
-				8F63308E1BE2C44E0007F52B /* LaunchScreen.storyboard */,
-				8F6330911BE2C44E0007F52B /* Info.plist */,
-				8F732C1A1C37835700581ECF /* TableViewController.swift */,
-				8F732C161C35CE7300581ECF /* Meme.swift */,
-				8F732C3C1C3896BE00581ECF /* MemeCollectionViewCell.swift */,
 				8F732C3E1C38A57200581ECF /* MemeDetailViewController.swift */,
-				8F24D3E41C6136C3006E77FC /* MemeCell.swift */,
+				8F6330891BE2C44E0007F52B /* Main.storyboard */,
+				8F63308E1BE2C44E0007F52B /* LaunchScreen.storyboard */,
+				8F63308C1BE2C44E0007F52B /* Assets.xcassets */,
+				8F6330911BE2C44E0007F52B /* Info.plist */,
 			);
 			name = MemeMeVer2;
 			path = MemeMeVer1;

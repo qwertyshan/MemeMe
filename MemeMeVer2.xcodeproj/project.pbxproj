@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F24D3E51C6136C3006E77FC /* MemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F24D3E41C6136C3006E77FC /* MemeCell.swift */; };
 		8F4E4F4A1C39E3DF00F54C92 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E4F491C39E3DF00F54C92 /* CollectionViewController.swift */; };
 		8F6330861BE2C44E0007F52B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6330851BE2C44E0007F52B /* AppDelegate.swift */; };
 		8F6330881BE2C44E0007F52B /* MemeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6330871BE2C44E0007F52B /* MemeEditViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F24D3E41C6136C3006E77FC /* MemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCell.swift; sourceTree = "<group>"; };
 		8F4E4F491C39E3DF00F54C92 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		8F6330821BE2C44E0007F52B /* MemeMeVer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMeVer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6330851BE2C44E0007F52B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				8F732C161C35CE7300581ECF /* Meme.swift */,
 				8F732C3C1C3896BE00581ECF /* MemeCollectionViewCell.swift */,
 				8F732C3E1C38A57200581ECF /* MemeDetailViewController.swift */,
+				8F24D3E41C6136C3006E77FC /* MemeCell.swift */,
 			);
 			name = MemeMeVer2;
 			path = MemeMeVer1;
@@ -157,6 +160,7 @@
 				8F6330881BE2C44E0007F52B /* MemeEditViewController.swift in Sources */,
 				8F6330861BE2C44E0007F52B /* AppDelegate.swift in Sources */,
 				8F4E4F4A1C39E3DF00F54C92 /* CollectionViewController.swift in Sources */,
+				8F24D3E51C6136C3006E77FC /* MemeCell.swift in Sources */,
 				8F732C3F1C38A57200581ECF /* MemeDetailViewController.swift in Sources */,
 				8F732C1B1C37835700581ECF /* TableViewController.swift in Sources */,
 			);

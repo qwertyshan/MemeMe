@@ -12,7 +12,7 @@ import UIKit
 class TableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
-    
+
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
@@ -26,7 +26,7 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
-        tableViewOutlet.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MemeCell")
+        tableViewOutlet.registerClass(MemeCell.self, forCellReuseIdentifier: "MemeCell")
     }
     
     // MARK: Table View Data Source
@@ -36,20 +36,17 @@ class TableViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")! as UITableViewCell
+        let cell:MemeCell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! MemeCell
         let meme = memes[indexPath.item] //Select meme on current row
         
         // Set substrings
         let strFirst = meme.textTop.characters.prefix(10)
         let strSecond = meme.textBottom.characters.prefix(10)
+        let str = String(strFirst).capitalizedString + "... " + String(strSecond).capitalizedString
         
         // Set the name and image
-        if let textLabel = cell.textLabel {
-            textLabel.text =  String(strFirst) + "... " + String(strSecond)
-        }
-        if let imageView = cell.imageView {
-            imageView.image = meme.memedImage
-        }
+        cell.loadItem(image: meme.image, text: str)
+        
         return cell
     }
     

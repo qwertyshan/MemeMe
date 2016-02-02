@@ -26,7 +26,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
-        tableViewOutlet.registerClass(MemeCell.self, forCellReuseIdentifier: "MemeCell")
     }
     
     // MARK: Table View Data Source
@@ -36,26 +35,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! MemeCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath) as! MemeCell
         let meme = memes[indexPath.item] //Select meme on current row
         
         // Set substrings
         let strFirst = meme.textTop.characters.prefix(10)
         let strSecond = meme.textBottom.characters.prefix(10)
         let strFull = String(strFirst).capitalizedString + "... " + String(strSecond).capitalizedString
-        
-        // Set the name and image
-        if let cellImage = cell.cellImage {
-            cellImage.image = meme.image
-        } else {
-            print("cellImage is nil")
-        }
-        if let cellText = cell.cellText {
-            cellText.text = strFull
-        } else {
-            print("cellText is nil")
-        }
-        
+   
+        cell.cellImage.image = meme.memedImage
+        cell.cellText.text = strFull
+             
         return cell
     }
     
